@@ -4,21 +4,21 @@ sequenceDiagram
     participant server
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    server-->>browser: HTTP status code 302
+    server-->>browser: HTTP status code 302 (Redirect)
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
-    server-->>browser: HTML document
+    server-->>browser: notes.html (Web Structure)
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
-    server-->>browser: the css file
+    server-->>browser: main.css (Stylesheet)
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
-    server-->>browser: the JavaScript file
+    server-->>browser: script.js
 
-    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+    Note right of browser: The browser executes script.js and fetches notes JSON from the server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
-    server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+    server-->>browser: data.json
 
-    Note right of browser: The browser executes the callback function that renders the notes
+    Note right of browser: The browser executes the callback function on script.js that renders the notes
 ```
