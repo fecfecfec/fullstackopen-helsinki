@@ -12,10 +12,10 @@ sequenceDiagram
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
     server-->>browser: spa.js
 
-    Note right of browser: The browser executes script.js and fetches notes JSON from the server
+    Note right of browser: The browser executes spa.js and fetches notes JSON from the server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     server-->>browser: data.json
 
-    Note right of browser: The browser executes the callback function on script.js that renders the notes
+    Note right of browser: The browser executes the callback function on spa.js that renders the notes
 ```
