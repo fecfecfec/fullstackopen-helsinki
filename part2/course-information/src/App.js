@@ -47,6 +47,8 @@ const Course = (props) => {
   )
 }
 
+// Need to turn the course component into a component that renders the content of an arbitratory number of courses
+
 const App = () => {
   const course = {
     id: 1,
