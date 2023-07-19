@@ -1,52 +1,61 @@
-// const Header = (props) => {
-//     console.log('Header props', props)
-//     return (
-//         <>
-//             <h1>{props}</h1>
-//         </>
-//     )
-// }
+// Changed props and props.name to the destructured version
+// Shorten component for further readability
+const Header = ({ name }) => (
+    <>
+        <h1>{name}</h1>
+    </>
+)
 
-// const Part = (props) => {
-//     return (
-//         <>
-//             <p>
-//                 {props.part.name} {props.part.exercises}
-//             </p>
-//         </>
-//     )
-// }
+const Part = (props) => {
+    return (
+        <>
+            <p>
+                {props.part.name} {props.part.exercises}
+            </p>
+        </>
+    )
+}
 
-// const Content = (props) => {
-//     return (
-//         <>
-//             <Part part={props.parts[0]} />
-//             <Part part={props.parts[1]} />
-//             <Part part={props.parts[2]} />
-//         </>
-//     )
-// }
+const Content = (props) => {
+    const mappedParts = props.parts.map((part) => {
+        return (
+            <Part key={part.id} part={part} />
+        )
+    })
 
-// const Total = (props) => {
-//     // const total = props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises => Verbose
-//     const total = props.parts.reduce((sum, part) => sum + part.exercises, 0)
-//     console.log(total)
-//     return (
-//         <>
-//             <p>Number of exercises {total}</p>
-//         </>
-//     )
-// }
+    return (
+        <>
+            {mappedParts}
+        </>
+    )
+}
 
-// const Course = (props) => {
-//     console.log('Course props', props)
-//     return (
-//         <> 
-//             {/* <Header name={props.name} /> */}
-//             {/* <Content parts={props.parts} />
-//             <Total parts={props.parts} /> */}
-//         </>
-//     )
-// }
+const Total = (props) => {
+    const total = props.parts.reduce((sum, part) => sum + part.exercises, 0)
+    return (
+        <>
+            <p><strong>Number of exercises: {total}</strong></p>
+        </>
+    )
+}
 
-// export default Course
+const Course = (props) => {
+    const mappedCourses = props.course.map((course) => {
+        return (
+            <div key={course.id}>
+                <Header name={course.name} />
+                <Content parts={course.parts} />
+                <Total parts={course.parts} />
+                <hr></hr>
+            </div>
+        )
+    })
+
+    return (
+        <>
+            {mappedCourses}
+        </>
+    )
+}
+
+export default Course
