@@ -1,4 +1,53 @@
-import Course from './components/Course'
+// import Course from './components/Course'
+
+const Header = (props) => {
+  return (
+    <>
+      <h1>{props.name}</h1>
+    </>
+  )
+}
+
+const Part = (props) => {
+  return (
+    <>
+      <p>
+        {props.part.name} {props.part.exercises}
+      </p>
+    </>
+  )
+}
+
+const Content = (props) => {
+  return (
+    <>
+      <Part part={props.parts[0]} />
+      <Part part={props.parts[1]} />
+      <Part part={props.parts[2]} />
+    </>
+  )
+}
+
+const Total = (props) => {
+  // const total = props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises => Verbose
+  const total = props.parts.reduce((sum, part) => sum + part.exercises, 0)
+  console.log(total)
+  return (
+    <>
+      <p><strong>Number of exercises: {total}</strong></p>
+    </>
+  )
+}
+
+const Course = (props) => {
+  return (
+    <>
+      <Header name={props.course.name} />
+      <Content parts={props.course.parts} />
+      <Total parts={props.course.parts} />
+    </>
+  )
+}
 
 const App = () => {
   const course = {
@@ -23,7 +72,11 @@ const App = () => {
     ]
   }
 
-  return <Course course={course} />
+  return (
+    <>
+      <Course course={course} />
+    </>
+  )
 }
 
 export default App
