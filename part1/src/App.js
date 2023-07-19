@@ -1,23 +1,36 @@
 import { useState } from 'react'
 
-const Display = ({ counter }) => <div>{counter}</div>
-
 const Button = ({ handleClick, text }) => <button onClick={handleClick}>{text}</button>
+const Display = ({ text, value }) => <div>{text}: {value}</div>
 
 const App = () => {
-  const [counter, setCounter] = useState(0)
+  // save clicks of each button to its own state
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
 
-  const increaseByOne = () => setCounter(counter + 1)
-  const decreaseByOne = () => setCounter(counter - 1)
-  const setToZero = () => setCounter(0)
+  // const rateGood = () => setGood(good + 1)
+  const rateGood = () => { 
+    console.log('Good value before', good)
+    setGood(good + 1)
+  }
+  const rateNeutral = () => setNeutral(neutral - 1)
+  const rateBad = () => setBad(bad + 1)
+
 
   return (
-    <div>
-      <Display counter={counter} />
-      <Button handleClick={increaseByOne} text='Plus' />
-      <Button handleClick={setToZero} text='Zero' />
-      <Button handleClick={decreaseByOne} text='Minus' />
-    </div>
+    <>
+      <h1>Give Feedback</h1>
+      <Button 
+        handleClick={rateGood}
+        text='Good'
+      />
+      <h1>Statistics</h1>
+      <Display 
+        value={good}
+        text='Good'
+        />
+    </>
   )
 }
 
