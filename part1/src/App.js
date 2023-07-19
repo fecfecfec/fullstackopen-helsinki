@@ -85,7 +85,8 @@ const App = () => {
 
   const [selected, setSelected] = useState(0)
   const [votes, setVotes] = useState(votesStorage)
-  const [highestNumber, setHighestNumber] = useState(0)
+  // Setting a state for the highest number of votes works too.
+  // const [highestNumber, setHighestNumber] = useState(0)
 
   const randomQuote = () => {
     const randomIndex = Math.floor(Math.random() * anecdotes.length)
@@ -96,9 +97,13 @@ const App = () => {
     const votesCopy = [...votes]
     votesCopy[selected] += 1
     setVotes(votesCopy)
-    const topQuote = votes.indexOf(Math.max(...votes))
-    setHighestNumber(topQuote)
+    // The state is refreshed every time the user votes. It seems unnecessary to set it this way.
+    // const topQuote = votes.indexOf(Math.max(...votes))
+    // setHighestNumber(topQuote)
   }
+
+  // Having a constant for the highest number of votes works and looks more efficient.
+  const mostVotedQuote = votes.indexOf(Math.max(...votes))
 
 
   return (
@@ -108,8 +113,12 @@ const App = () => {
       <p>Votes: {votes[selected]}</p>
       <button onClick={voteQuote}>Vote</button>
       <button onClick={randomQuote}>Random Quote</button>
-      <h1>Top Anecdote</h1>
+      {/* <h2>⭐️ Top Anecdote</h2>
       <p>{anecdotes[highestNumber]}</p>
+      <p>Votes: {votes[highestNumber]}</p> */}
+      <h2>⭐️ Top Anecdote</h2>
+      <p>{anecdotes[mostVotedQuote]}</p>
+      <p>Votes: {votes[mostVotedQuote]}</p>
     </div>
   )
 }
