@@ -1,25 +1,27 @@
 const NewContactForm = ({ newName, newPhone, handleNewContact, handleNewPhone, addNewContact }) => {
     return (
         <form onSubmit={addNewContact} >
-            <tr>
-                <td>👤 Name:</td>
-                <td><input
+            <div 
+            style={{ display: 'flex' }}>
+                <div>👤 Name:</div>
+                <div><input
                     value={newName}
                     onChange={handleNewContact}
-                /></td>
-            </tr>
-            <tr>
-            <td>📞 Number:</td>
-            <td><input
+                /></div>
+            </div>
+            <div 
+            style={{ display: 'flex' }}>
+            <div>📞 Number:</div>
+            <div><input
                     value={newPhone}
                     onChange={handleNewPhone}
-                /></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                <button type="submit">Add Contact</button></td>
-            </tr>
+                /></div>
+            </div>
+            <div>
+                <div></div>
+                <div>
+                <button type="submit">Add Contact</button></div>
+            </div>
         </form>
     )
 }
