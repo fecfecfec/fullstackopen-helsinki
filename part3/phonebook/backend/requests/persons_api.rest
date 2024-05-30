@@ -1,0 +1,67 @@
+GET http://localhost:3001/api/persons
+
+###
+GET http://localhost:3001/api/persons/3
+
+###
+GET http://localhost:3001/api/persons/66576bd6a97d0648bb4d2745
+
+###
+DELETE http://localhost:3001/api/persons/66587e10fefb431141847b26
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Jan Brade",
+    "number": "854-1234561"
+}
+
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Jan Brade",
+    "number": "999-1234561"
+}
+
+
+### Testing validators
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "A",
+    "number": "999-1234561"
+}
+
+###
+PUT http://localhost:3001/api/persons/665884262d6fd87a23eaf79a
+Content-Type: application/json
+
+{
+    "name": "Jan Brade",
+    "number": "9-1234561"
+}
+
+### Test: Name missing 
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "number": "007-123456"
+}
+
+### Test: Number missing 
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Jorge Jorgelin"
+}
+
+### Info Request
+GET http://localhost:3001/info
