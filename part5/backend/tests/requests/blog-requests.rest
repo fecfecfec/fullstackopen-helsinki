@@ -1,0 +1,66 @@
+### Get all with token
+# GET http://localhost:3003/api/blogs/
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZlY2ZlY2ZlYyIsImlkIjoiNjY2MGI2YTY4ZTdiMmVmZTUxNDBmYTNiIiwiaWF0IjoxNzE3Njc1NjA4LCJleHAiOjE3MTc2NzkyMDh9.3YMBX1SgHWOdzVCyicxNCCkVqrcjAp3lVUEMVEGxJdw
+
+### Get all without token
+GET http://localhost:3003/api/blogs/
+
+
+### New blog
+POST http://localhost:3003/api/blogs/
+Content-Type: application/json
+
+{
+  "title": "New interesting thing to read",
+  "author": "Nameoffa Rialjiuman",
+  "url": "https://www.google.com",
+  "likes": 34
+}
+### New blog for deletion
+POST http://localhost:3003/api/blogs/
+Content-Type: application/json
+
+{
+  "title": "Delete me",
+  "author": "Nameoffa Rialjiuman",
+  "url": "https://www.google.com",
+  "likes": 34
+}
+
+### Create new note with token
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZlY2ZlY2ZlYyIsImlkIjoiNjY2MGI2YTY4ZTdiMmVmZTUxNDBmYTNiIiwiaWF0IjoxNzE3Njg3NzMyLCJleHAiOjE3MTc2OTEzMzJ9.Gufr9xXnc_5Hyuaiy1DGkWjJfZ1vrz2gjsbD2KfpE7s
+
+{
+  "title": "Testing the tokenExtractor",
+  "author": "Kitschi Golf",
+  "url": "https://www.google.com",
+  "likes": 34
+}
+
+### Update blog
+PUT http://localhost:3003/api/blogs/665fb5935a575d55f50a28d3
+Content-Type: application/json
+
+{
+  "likes": 2
+}
+
+### New blog for deletion
+DELETE http://localhost:3003/api/blogs/6661d5eb0371e14d3d32b398
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZlY2ZlY2ZlYyIsImlkIjoiNjY2MGI2YTY4ZTdiMmVmZTUxNDBmYTNiIiwiaWF0IjoxNzE3Njg3NzMyLCJleHAiOjE3MTc2OTEzMzJ9.Gufr9xXnc_5Hyuaiy1DGkWjJfZ1vrz2gjsbD2KfpE7s
+
+### New blog for wrong deletion
+DELETE http://localhost:3003/api/blogs/66611b320d80570da8b31483
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRvdWJsZVVzZXIiLCJpZCI6IjY2NjExODNlNjNlZWJkMzIzMGQ0ZDBhZCIsImlhdCI6MTcxNzYzOTI2NSwiZXhwIjoxNzE3NjQyODY1fQ.QNp3bdqj4cw5fuJjuiTNOdmGCYG6euWwAHcurwQRECA
+
+
+### New blog for error
+POST http://localhost:3003/api/blogs/
+Content-Type: application/json
+
+{
+  "author": "Nameoffa Rialjiuman",
+  "likes": 34
+}
