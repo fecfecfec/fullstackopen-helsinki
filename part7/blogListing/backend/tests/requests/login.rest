@@ -1,0 +1,17 @@
+###
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+    "username": "fecfecfec",
+    "password": "helsinki"
+}
+
+### Other user for token validations
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+    "username": "doubleUser",
+    "password": "crouchet"
+}
