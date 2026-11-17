@@ -25,5 +25,10 @@
     "express": "^4.19.2",
     "mongoose": "^8.24.10",
     "morgan": "^1.10.0"
+  },
+  "overrides": {
+    "nodemon": {
+      "minimatch": "^11.0.1"
+    }
   }
 }
