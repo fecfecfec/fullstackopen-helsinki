@@ -1,6 +1,6 @@
 const { ApolloServer } = require('@apollo/server')
 
-const { expressMiddleware } = require('@apollo/server/express4')
+const { expressMiddleware } = require('@as-integrations/express4')
 const {
   ApolloServerPluginDrainHttpServer,
 } = require('@apollo/server/plugin/drainHttpServer')
