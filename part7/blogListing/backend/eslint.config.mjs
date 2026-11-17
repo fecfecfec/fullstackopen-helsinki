@@ -19,7 +19,6 @@ export default [
       'arrow-spacing': ['error', { before: true, after: true }],
       'no-console': 0,
     },
-    parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   },
   {
     ignores: ['dist/*'],
